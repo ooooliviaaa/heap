@@ -68,6 +68,14 @@ void dealloc(Node* head)
 // -----------------------------------------------
 
 
+/*bool part2_test(int i){
+  if(i % 2 == 0){
+    return true; 
+  }
+  else{
+    return false;
+  }
+}*/
 
 
 
@@ -84,12 +92,30 @@ int main(int argc, char* argv[])
     Node* head = readList(argv[1]);
     cout << "Original list: ";
     print(head);
-
-    // Test out your linked list code
-
-
-
+    Node* smaller;
+    Node* larger;
     
+
+    // Test for Part1: split/pivot 
+    cout << "Part1 testing for llpivot: " << endl;
+    llpivot(head, smaller, larger, 10);
+    cout << "the pivot is: 10." << endl;
+    cout << "smaller:";
+    print(smaller);
+    cout << "larger:";
+    print(larger);
+    //head is suppose to be NULL 
+    cout << "head:";
+    print(head);
+
+    head = readList(argv[1]);
+    cout << "Part2 testing for llfilter: " << endl;
+    Comp pred;
+    Node* temp = llfilter(head,pred);
+    print(temp);
+
     return 0;
 
 }
+
+
